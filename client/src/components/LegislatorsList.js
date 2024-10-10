@@ -8,7 +8,7 @@ function LegislatorsList() {
         fetch('http://localhost:4000/legislators/votes')
         .then(response => response.json())
         .then(data => setLegislators(data));
-    })
+    },[])
 
     const renderLegislatorsList = () => {
         return legislators.map(legislator => {
