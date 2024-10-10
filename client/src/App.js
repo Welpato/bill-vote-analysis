@@ -1,4 +1,3 @@
-import './App.css';
 import Menu from './components/Menu';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import LegislatorsList from './components/LegislatorsList';
