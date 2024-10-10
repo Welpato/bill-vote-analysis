@@ -1,9 +1,10 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { PAGES } from '../utils/constants';
 
-function Menu() {
+
+function Menu({setCurPage}) {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -11,8 +12,16 @@ function Menu() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#legislators">Legislators</Nav.Link>
-            <Nav.Link href="#bills">Bills</Nav.Link>
+            <Nav.Link 
+              onClick={() => setCurPage(PAGES.LEGISLATORS)}
+            >
+              {PAGES.LEGISLATORS}
+            </Nav.Link>
+            <Nav.Link 
+              onClick={() => setCurPage(PAGES.BILLS)}
+            >
+              {PAGES.BILLS}
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

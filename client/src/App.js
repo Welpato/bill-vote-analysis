@@ -1,14 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
 import Menu from './components/Menu';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import LegislatorsList from './components/LegislatorsList';
+import { useState } from 'react';
+import { PAGES } from './utils/constants';
+import Container from 'react-bootstrap/esm/Container';
 
 function App() {
+  // I know this is not the best way to handle pagination, but I don't want to spend too much time
+  // implementing routing or a more complex pagination system.
+  const [currPage, setCurrPage] = useState(PAGES.LEGISLATORS);
+
+  console.log(currPage);
   return (
     <div>
-      <Menu />
-      <LegislatorsList />
+      <Menu setCurPage={setCurrPage}/>
+      <Container className='mt-3'>
+        <h1>{currPage}</h1>
+        { currPage === PAGES.LEGISLATORS && <LegislatorsList />}
+      </Container>
+      
     </div>
   );
 }
