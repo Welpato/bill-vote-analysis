@@ -1,0 +1,12 @@
+{
+  "name": "bill-vote-analysis",
+  "version": "1.0.0",
+  "description": "First commit",
+  "scripts": {
+    "client": "cd client && npm run start",
+    "api-dev": "cd api && npm run development",
+    "api": "cd api && npm run start"
+  },
+  "author": "Wesley Osorio",
+  "license": "ISC"
+}
