@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
+import getBillsResults from '../utils/getBillsResults';
 
 function BillsList() {
     const [bills, setBills] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:4000/bills/results')
-        .then(response => response.json())
-        .then(data => setBills(data));
+        async function fetchBills() {
+            const billsResult = await getBillsResults();
+            setBills(billsResult);
+        }
+
+        fetchBills();
     },[])
 
     const renderBillsList = () => {

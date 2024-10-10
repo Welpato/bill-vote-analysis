@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
+import getLegislatorsVotes from '../utils/getLegislatorsVotes';
 
 function LegislatorsList() {
     const [legislators, setLegislators] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:4000/legislators/votes')
-        .then(response => response.json())
-        .then(data => setLegislators(data));
+        async function fetchLegislators() {
+            const legislatorsResult = await getLegislatorsVotes();
+            setLegislators(legislatorsResult);
+        }
+
+        fetchLegislators();
     },[])
 
     const renderLegislatorsList = () => {

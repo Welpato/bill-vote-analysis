@@ -3,4 +3,9 @@ const PAGES = {
     BILLS: 'Bills',
 };
 
-export { PAGES };
+const API_ROUTES = {
+    LEGISLATORS_VOTES: 'legislators/votes',
+    BILLS_RESULTS: 'bills/results',
+};
+
+export { PAGES, API_ROUTES };
