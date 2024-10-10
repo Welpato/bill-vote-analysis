@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const getBills = require('./src/service/getBills')
+const getBillsResults = require('./src/service/getBillsResults')
 const getLegislators = require('./src/service/getLegislators')
 const getLegislatorsVotes = require('./src/service/getLegislatorsVotes')
 const getVoteResults = require('./src/service/getVoteResults')
@@ -13,6 +14,17 @@ app.use(cors())
 app.get('/bills', (req, res) => {
   return getBills().then((bills) => {
     res.json(bills)
+  }).catch((error) => {
+    res.status(500).json({
+      message: 'An error occurred',
+      error: error
+    })
+  })
+})
+
+app.get('/bills/results', (req, res) => {
+  return getBillsResults().then((billsResults) => {
+    res.json(billsResults)
   }).catch((error) => {
     res.status(500).json({
       message: 'An error occurred',
